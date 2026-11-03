@@ -1,0 +1,41 @@
+{
+  "language": "ru",
+  "whisper_model": "models/faster-whisper-small",
+  "whisper_compute": "int8",
+  "whisper_threads": 0,
+
+  "tts_engine": "edge",
+  "voice": "ru-RU-DmitryNeural",
+  "tts_rate": "+8%",
+  "tts_volume": "+0%",
+  "system_tts": "auto",
+  "piper_model": "",
+  "edge_check": true,
+
+  "opencode_cli": "",
+  "model": "opencode/deepseek-v4.1-flash-free",
+  "agent": "build",
+  "workspace": "agent",
+  "auto_approve": false,
+  "keep_context": true,
+  "max_context_turns": 6,
+  "timeout_sec": 150,
+
+  "microphone": "",
+  "sample_rate": 16000,
+  "max_record_sec": 30,
+
+  "global_hotkey": "f8",
+  "hotkey_grab": false,
+  "compositor": "auto",
+
+  "greeting": true,
+  "minimize_to_tray": true,
+  "start_minimized": false,
+  "search_url": "https://yandex.ru/search/?text={query}",
+  "show_caption": true,
+  "volume_step": 5,
+  "screenshot_dir": "",
+  "notifications": true,
+  "log_level": "INFO"
+}

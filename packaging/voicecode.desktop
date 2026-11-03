@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=VoiceCode
+GenericName=Голосовой помощник
+Comment=Push-to-talk голосовой помощник для opencode
+Exec=voicecode
+TryExec=voicecode
+Icon=voicecode
+Terminal=false
+Categories=Utility;AudioVideo;
+Keywords=voice;whisper;opencode;assistant;голос;
+StartupWMClass=voicecode

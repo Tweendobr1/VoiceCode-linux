@@ -1,0 +1,13 @@
+post_install() {
+  cat <<'EOF'
+VoiceCode установлен.
+
+Запуск: voicecode  (или ярлык в меню приложений)
+Настройки: ~/.config/voicecode/config.json (создаётся при первом запуске)
+Диагностика: /usr/bin/python3 /opt/voicecode/tools/warmup.py
+
+Для глобальной клавиши F8 на Wayland добавь себя в группу input:
+    sudo usermod -aG input $USER
+и перезайди в сессию. На X11 хоткей работает через pynput и без этого.
+EOF
+}

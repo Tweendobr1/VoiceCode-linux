@@ -1,0 +1,66 @@
+# Maintainer: VoiceCode Linux port
+pkgname=voicecode
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="Голосовой push-to-talk помощник для opencode на Arch Linux"
+arch=('any')
+url="https://github.com/Tweendobr1/VoiceCode"
+license=('custom')
+depends=(
+  python
+  pyside6
+  python-numpy
+  python-sounddevice
+  python-evdev
+  python-av
+  python-faster-whisper
+  python-edge-tts
+  portaudio
+  ffmpeg
+  espeak-ng
+  xdg-utils
+  libnotify
+  procps-ng
+  grim
+  xdotool
+)
+optdepends=(
+  'wireplumber: управление громкостью через wpctl'
+  'pamixer: альтернативное управление громкостью'
+  'piper-tts: более качественный офлайн-голос'
+  'spectacle: скриншоты в KDE'
+  'flameshot: скриншоты во всех окружениях'
+  'scrot: скриншоты на X11'
+  'maim: скриншоты на X11'
+  'gnome-screenshot: скриншоты в GNOME'
+  'wtype: переключение окон на Wayland без xdotool'
+  'hyprland: команды окон Hyprland'
+  'sway: команды окон Sway'
+)
+install=voicecode.install
+source=()
+sha256sums=()
+
+package() {
+  local src="$startdir/.."
+
+  install -dm755 "$pkgdir/opt/voicecode"
+  cp -a \
+    "$src/main.py" \
+    "$src/config.json" \
+    "$src/requirements.txt" \
+    "$src/README.md" \
+    "$src/voicecode" \
+    "$src/agent" \
+    "$src/tools" \
+    "$pkgdir/opt/voicecode/"
+  find "$pkgdir/opt/voicecode" -type d -name __pycache__ -prune -exec rm -rf {} +
+
+  install -Dm755 voicecode.sh "$pkgdir/usr/bin/voicecode"
+  install -Dm644 voicecode.desktop "$pkgdir/usr/share/applications/voicecode.desktop"
+  install -Dm644 voicecode.svg "$pkgdir/usr/share/icons/hicolor/scalable/apps/voicecode.svg"
+  install -Dm644 voicecode.service "$pkgdir/usr/lib/systemd/user/voicecode.service"
+  install -Dm644 "$src/config.json" "$pkgdir/usr/share/voicecode/config.json"
+  install -Dm644 "$src/agent/AGENTS.md" "$pkgdir/usr/share/voicecode/AGENTS.md"
+  install -Dm644 "$src/README.md" "$pkgdir/usr/share/doc/voicecode/README.md"
+}
